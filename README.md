@@ -3,22 +3,25 @@ Simple API REST creado en PHP basada en MVC para realizar peticiones ( GET, POST
 
 ## Configuración
 1. Actualice las credenciales de la conexion a base de datos desde el archivo `config.php`.
-`define('DB_HOST', 'xxxxx');`
-`define('DB_USER', 'xxxx');`
-`define('DB_PASS', 'xxxx');`
-`define('DB_NAME', 'xxxx');`
+
+        define('DB_HOST', 'xxxxx');
+        define('DB_USER', 'xxxx');
+        define('DB_PASS', 'xxxx');
+        define('DB_NAME', 'xxxx');
    
 2. Ejecute el script que se encuentra el archivo `database.sql` en la base de datos indicada anteriormente.
 
 ## Caracteristicas
 Gracias a la configuracion en el archivo .htaccess cada endpoint esta asociado a una route en especifico, por ejemplo:
+
 `'/users' => 'UserService@list'` equivale a `GET /users` → Listado de usuarios.
+
 `'/users/create' => 'UserService@create'` equivale a `POST /users/create` → Crear usuarios.
 
 ## Consumir API
 Peticiones API a traves Fetch API de Javascript:
 
-```
+```js
 /* @Route("/", methods: {"GET"}) */
 
 fetch('http://127.0.0.1/YourNameFile/')
@@ -31,7 +34,7 @@ fetch('http://127.0.0.1/YourNameFile/')
 }*/
 ```
 
-```
+```js
 /* @Route("/users", methods: {"GET"}) */
 let config = {  method: 'GET' }
 fetch('http://127.0.0.1/YourNameFile/users', config)
@@ -45,8 +48,8 @@ fetch('http://127.0.0.1/YourNameFile/users', config)
 }*/
 ```
 
-```
-/* @Route("/users", methods: {"GET"}) */
+```js
+/* @Route("/users/create", methods: {"POST"}) */
 const newUserData = {
   name: 'Jhoan',
   email: 'jhoan@example.com',
